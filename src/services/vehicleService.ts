@@ -9,6 +9,7 @@ export const getAllVehicleService = async (): Promise<object | string> => {
     return 'Error :' + error;
   }
 };
+
 export const getVehicleByStatusService = async (
   currntStatus: string
 ): Promise<object | string> => {
@@ -30,7 +31,17 @@ export const getVehicleByNameService = async (
     return 'Error :' + error;
   }
 };
-
+//getVehicleByIdService
+export const getVehicleByIdService = async (
+  id: string
+): Promise<object | string> => {
+  try {
+    const vehicleData = await vehicleModelData.find({ _id: id });
+    return vehicleData;
+  } catch (error) {
+    return 'Error :' + error;
+  }
+};
 export const saveVehicleService = async (
   vehicleData: any
 ): Promise<object | string> => {

@@ -4,6 +4,7 @@ import multer from 'multer';
 import {
   deleteVehicle,
   getAllVehicle,
+  getVehicleById,
   getVehicleByName,
   getVehicleByStatus,
   saveVehicle,
@@ -28,8 +29,9 @@ const upload = multer({
 
 const route = express.Router();
 route.get('/', getAllVehicle);
-route.get('/:status', getVehicleByStatus);
+route.get('/status/:status', getVehicleByStatus);
 route.get('/model/:model', getVehicleByName);
+route.get('/id/:_id', getVehicleById);
 // route.post(
 //   "/",
 //   upload.single("frontImg"),
