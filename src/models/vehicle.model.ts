@@ -48,6 +48,10 @@ const vehicleSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  date: {
+    type: Date,
+    required: true,
+  },
   contact: {
     type: Number,
     required: true,

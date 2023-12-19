@@ -70,6 +70,7 @@ export const saveVehicleService = async (
       price: vehicleData.price,
       status: vehicleData.status,
       address: vehicleData.address,
+      date: new Date,
       contact: vehicleData.contact,
       imgCollection: vehicleData.imgCollection,
       // frontImg: vehicleData.frontImg,
