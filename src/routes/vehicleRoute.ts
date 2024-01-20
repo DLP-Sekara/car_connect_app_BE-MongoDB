@@ -10,15 +10,13 @@ import {
   saveVehicle,
   updateVehicle,
 } from '../controllers/vehicleController';
-const DIR =
-  'D:/IJSE/Work area/react-native/CARConnect_APP/car_connect_app_BE/src/utils/images';
+//const DIR =
+//  'D:/IJSE/Work area/react-native/CARConnect_APP/car_connect_app_BE/src/utils/images';
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, DIR);
+    cb(null, 'D:/IJSE/Work area/react-native/CARConnect_APP/car_connect_app/src/utils/uploads');
   },
   filename: function (req, file, cb) {
-    // const fileName = file.originalname.toLowerCase().split(' ').join('-');
-    // cb(null, uuid() + '-' + fileName);
     cb(null, file.originalname);
   },
 });
@@ -32,13 +30,7 @@ route.get('/', getAllVehicle);
 route.get('/status/:status', getVehicleByStatus);
 route.get('/model/:model', getVehicleByName);
 route.get('/id/:_id', getVehicleById);
-// route.post(
-//   "/",
-//   upload.single("frontImg"),
-//   upload.single("backImg"),
-//   saveVehicle
-// );
-route.post('/', upload.array('imgCollection'), saveVehicle);
+route.post('/', upload.array('arrayOfFilesName',2), saveVehicle);
 route.put('/', updateVehicle);
 route.delete('/delete/:id', deleteVehicle);
 

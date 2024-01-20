@@ -28,14 +28,16 @@ export const getVehicleByStatus = async (
 ): Promise<any> => {
   try {
     const vehicle = await getVehicleByStatusService(req.params.status);
-    console.log(vehicle);
     res.send(vehicle);
   } catch (error) {
     res.status(400);
   }
 };
 
-export const getVehicleById = async (req: Request, res: Response): Promise<any> => {
+export const getVehicleById = async (
+  req: Request,
+  res: Response
+): Promise<any> => {
   try {
     const vehicle = await getVehicleByIdService(req.params._id);
     console.log(vehicle);
@@ -60,17 +62,13 @@ export const saveVehicle = async (
   res: Response
 ): Promise<any> => {
   try {
-    console.log(req.body);
-    // const reqFiles: any = req.files; // Ensure req.files is defined or default to an empty array
-    // const url = req.protocol + '://' + req.get('host');
-    // const reqFilesArray = Array.isArray(reqFiles) ? reqFiles : [reqFiles];
-
-    // const reqFilesUrls = reqFilesArray.map(
-    //   (file) => url + '/public/' + file.filename
-    // );
-
+    //const reqFiles: any = req.files;
+    console.log('req-', req.body);
+    // const frontImg = reqFiles[0].originalname;
+    // const backImg = reqFiles[0].originalname;
+    // const vehicle = await saveVehicleService({...req.body, frontImg: frontImg,
+    //   backImg: backImg});
     const vehicle = await saveVehicleService(req.body);
-
     res.send(vehicle);
   } catch (error) {
     console.error(error);

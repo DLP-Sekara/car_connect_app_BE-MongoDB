@@ -56,7 +56,7 @@ export const saveVehicleService = async (
       .lean();
 
     const newVid = highestVehicleId ? highestVehicleId.vid + 1 : 1;
-
+    //const tempUrls = [frontImg, backImg];
     const vehicle = new vehicleModelData({
       vid: newVid,
       brand: vehicleData.brand,
@@ -70,16 +70,15 @@ export const saveVehicleService = async (
       price: vehicleData.price,
       status: vehicleData.status,
       address: vehicleData.address,
-      date: new Date,
+      date: new Date(),
       contact: vehicleData.contact,
-      imgCollection: vehicleData.imgCollection,
-      // frontImg: vehicleData.frontImg,
-      // backImg: vehicleData.backImg,
+      arrayOfFilesName: vehicleData.arrayOfFilesName,
     });
 
     const saveResponse = await vehicle.save();
     return { message: 'Vehicle added successfully !', saveResponse };
   } catch (error) {
+    console.log('ser- ', error);
     return 'Error s :' + error;
   }
 };
@@ -102,6 +101,7 @@ export const updateVehicleService = async (
 export const deleteVehicleService = async (
   data: string
 ): Promise<object | string> => {
+  console.log('vvv-', data);
   try {
     const deleteResponse = await vehicleModelData.findByIdAndDelete(data);
     return { message: 'Vehicle Deleted successfuly !', deleteResponse };
