@@ -48,6 +48,10 @@ const vehicleSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  year: {
+    type: String,
+    required: true,
+  },
   date: {
     type: Date,
     required: true,
@@ -56,14 +60,6 @@ const vehicleSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  // frontImg: {
-  //   type: String,
-  //   required: true,
-  // },
-  // backImg: {
-  //   type: String,
-  //   required: true,
-  // },
   arrayOfFilesName: {
     type: Array,
     required: true,

@@ -24,6 +24,7 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
 //mongoDb connection 
 const url =
   `mongodb+srv://${process.env.MONOGO_db}:${process.env.MONGO_PASSWORD}@cluster1.g7wiqty.mongodb.net/?retryWrites=true&w=majority`;

@@ -31,7 +31,7 @@ export const getVehicleByNameService = async (
     return 'Error :' + error;
   }
 };
-//getVehicleByIdService
+
 export const getVehicleByIdService = async (
   id: string
 ): Promise<object | string> => {
@@ -42,12 +42,11 @@ export const getVehicleByIdService = async (
     return 'Error :' + error;
   }
 };
+
 export const saveVehicleService = async (
   vehicleData: any
 ): Promise<object | string> => {
   try {
-    // console.log(frontImgOfVehicle);
-    // console.log(backImgOfVehicle);
     console.log('vvv1- ', vehicleData);
     const highestVehicleId = await vehicleModelData
       .findOne()
@@ -56,7 +55,6 @@ export const saveVehicleService = async (
       .lean();
 
     const newVid = highestVehicleId ? highestVehicleId.vid + 1 : 1;
-    //const tempUrls = [frontImg, backImg];
     const vehicle = new vehicleModelData({
       vid: newVid,
       brand: vehicleData.brand,
@@ -70,6 +68,7 @@ export const saveVehicleService = async (
       price: vehicleData.price,
       status: vehicleData.status,
       address: vehicleData.address,
+      year: vehicleData.year,
       date: new Date(),
       contact: vehicleData.contact,
       arrayOfFilesName: vehicleData.arrayOfFilesName,

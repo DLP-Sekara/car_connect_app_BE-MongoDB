@@ -22,6 +22,7 @@ export const getAllVehicle = async (
     res.status(400);
   }
 };
+
 export const getVehicleByStatus = async (
   req: Request,
   res: Response
@@ -46,6 +47,7 @@ export const getVehicleById = async (
     res.status(400);
   }
 };
+
 export const getVehicleByName = async (
   req: Request,
   res: Response
@@ -57,17 +59,12 @@ export const getVehicleByName = async (
     res.status(400);
   }
 };
+
 export const saveVehicle = async (
   req: Request,
   res: Response
 ): Promise<any> => {
   try {
-    //const reqFiles: any = req.files;
-    console.log('req-', req.body);
-    // const frontImg = reqFiles[0].originalname;
-    // const backImg = reqFiles[0].originalname;
-    // const vehicle = await saveVehicleService({...req.body, frontImg: frontImg,
-    //   backImg: backImg});
     const vehicle = await saveVehicleService(req.body);
     res.send(vehicle);
   } catch (error) {
@@ -75,6 +72,7 @@ export const saveVehicle = async (
     res.status(500).send('Internal Server Error');
   }
 };
+
 export const updateVehicle = async (
   req: Request,
   res: Response
@@ -86,6 +84,7 @@ export const updateVehicle = async (
     res.status(400);
   }
 };
+
 export const deleteVehicle = async (
   req: Request,
   res: Response
